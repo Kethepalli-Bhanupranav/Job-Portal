@@ -8,7 +8,7 @@ const JobDetails = () => {
     useEffect(() => {
       fetch(`https://job-portal-delta-five.vercel.app/all-jobs/${id}`).then(res => res.json()).then(data => setJob(data));
 
-    },[])
+    },[id])
     const handleApply = async() =>{
         const { value: url } = await Swal.fire({
             input: "url",
