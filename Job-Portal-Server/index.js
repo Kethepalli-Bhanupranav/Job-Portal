@@ -32,16 +32,23 @@ async function run() {
     //POst a JOb
 
     app.post("/post-job", async (req, res) => {
-      const body = req.body;
-      body.createAt = new Date();
-      // console.log(body);
-      const result = await jobCollections.insertOne(body);
-      if (result.insertedId) {
-        return res.status(200).send(result);
-      } else {
-        return res.status(404).send({
-          message: "can not insert! try again later",
-          status: false,
+      try {
+        const body = req.body;
+        body.createdAt = new Date();
+        const result = await jobCollections.insertOne(body);
+        if (result.insertedId) {
+          return res.status(200).send(result);
+        } else {
+          return res.status(404).send({
+            message: "Cannot insert! Try again later.",
+            status: false,
+          });
+        }
+      } catch (error) {
+        console.error(error);
+        return res.status(500).send({
+          message: "An error occurred while posting the job.",
+          error: error.message,
         });
       }
     });
