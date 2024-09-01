@@ -9,8 +9,9 @@ const MyJobs = () => {
   const itemsPerPage  = 4;
 
   useEffect(() => {
-    setIsLoading(true);
-    fetch(`https://job-portal-delta-five.vercel.app//myJobs/bha@gmail.com`)
+        setIsLoading(true);
+        // Change this back using different user ids
+        fetch("https://job-portal-delta-five.vercel.app/myJobs/bha@gmail.com")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
