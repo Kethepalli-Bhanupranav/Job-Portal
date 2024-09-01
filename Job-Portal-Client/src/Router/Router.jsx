@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/edit-job/:id",
         element: <UpdateJobs />,
-        loader: ({ params }) => fetch(`https://job-portal-delta-five.vercel.app/${params.id}`),
+        loader: ({ params }) => fetch(`https://job-portal-delta-five.vercel.app/all-jobs/${params.id}`),
       },
     ],
   },
