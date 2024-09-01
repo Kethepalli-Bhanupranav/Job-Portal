@@ -6,8 +6,6 @@ require("dotenv").config();
 //Middlewares - 1
 app.use(express.json());
 app.use(cors());
-// User : BhanuPranav
-//Password :Bhanu'sJob-Portal
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb"); // <--- Added ObjectId here
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}
 @job-portal.y5ueoz5.mongodb.net/?appName=Job-Portal`;
@@ -96,6 +94,13 @@ async function run() {
       const jobs = await jobCollections.find({}).toArray();
       res.send(jobs);
     });
+    // app.post("/register",async(req,res)=>{
+    //     try{
+
+    //     }catch(error){
+
+    //     }
+    // })
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log(
