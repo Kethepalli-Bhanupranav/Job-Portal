@@ -140,11 +140,12 @@ const CreateJob = () => {
           <div className="create-job-flex">
             <div className="lg:w-1/2 w-full">
               <label className="block mb-2 text-lg ">Company Logo</label>
+              {/* Did these changes in this part for image */}
               <input
                 type="url"
                 placeholder="Paste your company logo URL : https://weshare.com/img1"
                 {...register("companyLogo")}
-                className="create-job-input"
+                className="create-job-input mt-4 max-w-xs max-h-40"
               />
             </div>
             <div className="lg:w-1/2 w-full">
